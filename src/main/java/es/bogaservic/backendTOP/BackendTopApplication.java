@@ -2,6 +2,7 @@ package es.bogaservic.backendTOP;
 
 
 import es.bogaservic.backendTOP.dao.T_TOP2000_STARTOFRECORDINGSESSION_Repository;
+import es.bogaservic.backendTOP.models.FallosFracasoSalidaEntrante;
 import es.bogaservic.backendTOP.models.T_TOP2000_STARTOFRECORDINGSESSION;
 import java.util.List;
 import java.util.Optional;
@@ -29,9 +30,9 @@ public class BackendTopApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         System.out.println("Hello World from Application Runner");
         
-        List<T_TOP2000_STARTOFRECORDINGSESSION> result = SORS_repository.findAll();
+        List<FallosFracasoSalidaEntrante> result = SORS_repository.findByMaquina(5);
         
-            for (T_TOP2000_STARTOFRECORDINGSESSION sSession : result) {
+            for (FallosFracasoSalidaEntrante sSession : result) {
                 System.out.println(sSession);
             }
      

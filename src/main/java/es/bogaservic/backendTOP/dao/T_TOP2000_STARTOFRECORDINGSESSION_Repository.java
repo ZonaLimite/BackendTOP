@@ -4,6 +4,7 @@
  */
 package es.bogaservic.backendTOP.dao;
 
+import es.bogaservic.backendTOP.models.FallosFracasoSalidaEntrante;
 import es.bogaservic.backendTOP.models.T_TOP2000_STARTOFRECORDINGSESSION;
 import java.util.List;
 import java.util.Optional;
@@ -14,8 +15,7 @@ import java.util.Optional;
  */
 public interface T_TOP2000_STARTOFRECORDINGSESSION_Repository {
     List<T_TOP2000_STARTOFRECORDINGSESSION> findAll();
-    
-    
+    List<FallosFracasoSalidaEntrante> findByMaquina(int maquina);
     
     
 }
