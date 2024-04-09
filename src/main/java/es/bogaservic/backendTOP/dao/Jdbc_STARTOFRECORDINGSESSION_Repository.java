@@ -56,20 +56,20 @@ public class Jdbc_STARTOFRECORDINGSESSION_Repository implements T_TOP2000_STARTO
     public List<FallosFracasoSalidaEntrante> findByMaquina(int maquina) {
         String recordingBase = "SELECT T_TOP2000_STARTOFRECORDINGSESSION.iSessionNumber "
             + "FROM T_TOP2000_STARTOFRECORDINGSESSION "
-            + "WHERE ((((IIf([T_TOP2000_STARTOFRECORDINGSESSION].[sShift]=\"\",\"Sin Turno\",[T_TOP2000_STARTOFRECORDINGSESSION].[sShift])))<>\"Pausa\" And ((IIf([T_TOP2000_STARTOFRECORDINGSESSION].[sShift]=\"\",\"Sin Turno\",[T_TOP2000_STARTOFRECORDINGSESSION].[sShift])))<>\"Mantenimiento\") AND (T_TOP2000_STARTOFRECORDINGSESSION.dDate>'2022/02/28') AND "
+            + "WHERE ((((IIf([T_TOP2000_STARTOFRECORDINGSESSION].[sShift]=\"\",\"Sin Turno\",[T_TOP2000_STARTOFRECORDINGSESSION].[sShift])))<>\"Pausa\" And ((IIf([T_TOP2000_STARTOFRECORDINGSESSION].[sShift]=\"\",\"Sin Turno\",[T_TOP2000_STARTOFRECORDINGSESSION].[sShift])))<>\"Mantenimiento\") AND (T_TOP2000_STARTOFRECORDINGSESSION.dDate LIKE '2024/04/01') AND "
             + "((T_TOP2000_STARTOFRECORDINGSESSION.iCenterId)=2) AND ((T_TOP2000_STARTOFRECORDINGSESSION.iMachineId)=?))";
-        String querySQL = "SELECT IIf(t_top2000_emptytrayinsertedfault.iSortModuleLevel=1,\"A\",\"B\") & IIf(t_top2000_emptytrayinsertedfault.iSortModuleSide=1,\"F\",\"T\") & ((([iSortModuleId]*6) -6))+ [iOutput] AS posicion, count(t_top2000_emptytrayinsertedfault.iOutput) AS fallos "
+        String querySQL = "SELECT IIf(t_top2000_emptytrayinsertedfault.iSortModuleLevel=1,\"A\",\"B\") AS level, IIf(t_top2000_emptytrayinsertedfault.iSortModuleSide=1,\"F\",\"T\") AS lado, ((([iSortModuleId]*6) -6))+ [iOutput] AS salida, count(t_top2000_emptytrayinsertedfault.iOutput) AS fallos "
             + "FROM t_top2000_emptytrayinsertedfault "
             + "WHERE (((t_top2000_emptytrayinsertedfault.iSessionNumber) In (" + recordingBase + "))) "
             + "GROUP BY IIf(t_top2000_emptytrayinsertedfault.iSortModuleLevel=1,\"A\",\"B\"), IIf(t_top2000_emptytrayinsertedfault.iSortModuleSide=1,\"F\",\"T\"), ((([iSortModuleId]*6) -6))+ [iOutput] "
-            + "ORDER BY 4 DESC;";
+            + "ORDER BY 4,1,2,3 DESC;";
         List<FallosFracasoSalidaEntrante> results = jdbcTemplate.query(querySQL, this::mapRowToFracasoSalidaEntrante, maquina);
         return results ;
     }
 
     private FallosFracasoSalidaEntrante mapRowToFracasoSalidaEntrante(ResultSet row, int rowNum) throws SQLException {
         return new FallosFracasoSalidaEntrante(
-                row.getString("Posicion"),
+                row.getString("level")+row.getString("lado")+row.getString("salida"),
                 row.getInt("fallos"));
     }    
 
