@@ -15,7 +15,7 @@ import java.util.Optional;
  */
 public interface T_TOP2000_STARTOFRECORDINGSESSION_Repository {
     List<T_TOP2000_STARTOFRECORDINGSESSION> findAll();
-    List<FallosFracasoSalidaEntrante> findByMaquina(int maquina);
+    List<FallosFracasoSalidaEntrante> findByMaquina(int centro,int maquina);
     
     
 }

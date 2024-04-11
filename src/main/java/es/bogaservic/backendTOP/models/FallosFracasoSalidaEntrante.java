@@ -12,13 +12,23 @@ import lombok.Data;
  */
 @Data
 public class FallosFracasoSalidaEntrante {
-    String posicion;
+    String nivel;
+    String lado;
+    int salida;
     int fallos;
 
-    public FallosFracasoSalidaEntrante(String posicion, int fallos) {
-        this.posicion = posicion;
+    public FallosFracasoSalidaEntrante() {
+    }
+
+    public FallosFracasoSalidaEntrante(String nivel, String lado, int salida,int fallos) {
+        this.nivel= nivel;
+        this.lado= lado;
+        this.salida = salida;
         this.fallos = fallos;
     }
     
-    
+    @Override
+    public String toString(){
+        return this.nivel + this.lado+this.salida + "=" + this.fallos;
+    }
 }

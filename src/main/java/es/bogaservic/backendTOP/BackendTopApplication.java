@@ -30,10 +30,12 @@ public class BackendTopApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println("Hello World from Application Runner");
+        int centro = 2;
+        int maquina =5;
 
         Timer timer = new Timer(3000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                List<FallosFracasoSalidaEntrante> result = SORS_repository.findByMaquina(5);
+                List<FallosFracasoSalidaEntrante> result = SORS_repository.findByMaquina(2,5);
 
                 for (FallosFracasoSalidaEntrante sSession : result) {
                     System.out.println(sSession);
