@@ -11,16 +11,16 @@ import lombok.Data;
  * @author F.J. BOGA
  */
 @Data
-public class FallosFracasoSalidaEntrante {
+public class EmptyTrayInsertedFault {
     String nivel;
     String lado;
     int salida;
     int fallos;
 
-    public FallosFracasoSalidaEntrante() {
+    public EmptyTrayInsertedFault() {
     }
 
-    public FallosFracasoSalidaEntrante(String nivel, String lado, int salida,int fallos) {
+    public EmptyTrayInsertedFault(String nivel, String lado, int salida,int fallos) {
         this.nivel= nivel;
         this.lado= lado;
         this.salida = salida;

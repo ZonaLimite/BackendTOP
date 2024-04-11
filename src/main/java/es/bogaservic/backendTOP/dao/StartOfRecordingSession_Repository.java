@@ -4,8 +4,8 @@
  */
 package es.bogaservic.backendTOP.dao;
 
-import es.bogaservic.backendTOP.models.FallosFracasoSalidaEntrante;
-import es.bogaservic.backendTOP.models.T_TOP2000_STARTOFRECORDINGSESSION;
+import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
+import es.bogaservic.backendTOP.models.StartOfRecordingSession;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,9 +13,9 @@ import java.util.Optional;
  *
  * @author F.J. BOGA
  */
-public interface T_TOP2000_STARTOFRECORDINGSESSION_Repository {
-    List<T_TOP2000_STARTOFRECORDINGSESSION> findAll();
-    List<FallosFracasoSalidaEntrante> findByMaquina(int centro,int maquina);
+public interface StartOfRecordingSession_Repository {
+    List<StartOfRecordingSession> findAll();
+    List<EmptyTrayInsertedFault> findFracasos(String iSessionsCriteria);
     
     
 }

@@ -11,9 +11,9 @@ import lombok.Data;
  * @author F.J. BOGA
  */
 @Data
-public class T_TOP2000_STARTOFRECORDINGSESSION {
+public class StartOfRecordingSession {
 
-    int nID;
+    String nID;
     String sMachineType;
     int iCenterId;
     int iMachineId;
@@ -25,9 +25,12 @@ public class T_TOP2000_STARTOFRECORDINGSESSION {
     int iNiveauExploit;
     String sShift;
     String sExploitationPlan;
-    
 
-    public T_TOP2000_STARTOFRECORDINGSESSION(int nID, String sMachineType, int iCenterId, int iMachineId, String dDate, String hTime, String sFullTime, int iSessionNumber, String sEvent, int iNiveauExploit, String sShift,String sExploitationPlan) {
+    public StartOfRecordingSession() {
+    }
+    
+    
+    public StartOfRecordingSession(String nID, String sMachineType, int iCenterId, int iMachineId, String dDate, String hTime, String sFullTime, int iSessionNumber, String sEvent, int iNiveauExploit, String sShift,String sExploitationPlan) {
         this.nID = nID;
         this.sMachineType = sMachineType;
         this.iCenterId = iCenterId;

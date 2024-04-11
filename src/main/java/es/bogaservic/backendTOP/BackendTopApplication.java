@@ -1,27 +1,25 @@
 package es.bogaservic.backendTOP;
 
-import es.bogaservic.backendTOP.dao.T_TOP2000_STARTOFRECORDINGSESSION_Repository;
-import es.bogaservic.backendTOP.models.FallosFracasoSalidaEntrante;
-import es.bogaservic.backendTOP.models.T_TOP2000_STARTOFRECORDINGSESSION;
+import es.bogaservic.backendTOP.dao.EmptyTrayInsertedFault_Repository;
+import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-import java.util.Optional;
 import javax.swing.Timer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
+import es.bogaservic.backendTOP.dao.StartOfRecordingSession_Repository;
 
 @SpringBootApplication
 public class BackendTopApplication implements CommandLineRunner {
 
     @Autowired
-    T_TOP2000_STARTOFRECORDINGSESSION_Repository SORS_repository;
+    StartOfRecordingSession_Repository SORS_repository;
+    
+    @Autowired
+    EmptyTrayInsertedFault_Repository ETIF_repository;
 
     public static void main(String[] args) {
         SpringApplication.run(BackendTopApplication.class, args);
@@ -35,10 +33,10 @@ public class BackendTopApplication implements CommandLineRunner {
 
         Timer timer = new Timer(3000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                List<FallosFracasoSalidaEntrante> result = SORS_repository.findByMaquina(2,5);
+                List<EmptyTrayInsertedFault> result = ETIF_repository.findEmptyTrayInsertedFaults(2, 5, "2024/04/11", null, "Tarde", null);
 
-                for (FallosFracasoSalidaEntrante sSession : result) {
-                    System.out.println(sSession);
+                for (EmptyTrayInsertedFault etif : result) {
+                    System.out.println(etif);
                 }
             }
         });
