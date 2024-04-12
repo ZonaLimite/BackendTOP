@@ -4,6 +4,7 @@
  */
 package es.bogaservic.backendTOP.models;
 
+import java.io.Serializable;
 import lombok.Data;
 
 /**
@@ -11,7 +12,7 @@ import lombok.Data;
  * @author F.J. BOGA
  */
 @Data
-public class StartOfRecordingSession {
+public class StartOfRecordingSession implements Serializable{
 
     String nID;
     String sMachineType;

@@ -5,17 +5,12 @@
 package es.bogaservic.backendTOP.dao;
 
 import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
-import es.bogaservic.backendTOP.models.StartOfRecordingSession;
 import java.util.List;
-import java.util.Optional;
 
 /**
  *
- * @author F.J. BOGA
+ * @author DevelopePC
  */
-public interface StartOfRecordingSession_Repository {
-    List<StartOfRecordingSession> findAll();
-    List<EmptyTrayInsertedFault> findFracasos(String iSessionsCriteria);
-    
-    
+public interface IEmptyTrayInsertedFaultDao {
+    List<EmptyTrayInsertedFault> findEmptyTrayInsertedFaults(Integer center, Integer maquina, String fecha, String hora, String turno, String programa);
 }
