@@ -10,6 +10,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -23,12 +27,14 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class StartOfRecordingSessionDao_JDBC implements IStartOfRecordingSessionDao {
 
+    Logger logger = LoggerFactory.getLogger(StartOfRecordingSessionDao_JDBC.class);
+
     @Autowired
     JdbcTemplate jdbcTemplate;
 
     @Override
     public List<StartOfRecordingSession> findAll() {
-        String query = "select * FROM T_TOP2000_STARTOFRECORDINGSESSION";
+        String query = "SELECT * FROM T_TOP2000_STARTOFRECORDINGSESSION;";
 
         //BeanPropertyRowMapper permite mapear automt. basado en la clase proporcionada
         return jdbcTemplate.query(query, new BeanPropertyRowMapper(StartOfRecordingSession.class));
@@ -73,10 +79,10 @@ public class StartOfRecordingSessionDao_JDBC implements IStartOfRecordingSession
 
     @Override
     public List<StartOfRecordingSession> findByDate(String sDate) {
-        String query = "SELECT T_TOP2000_STARTOFRECORDINGSESSION.* "
-                + "FROM T_TOP2000_EMPTYTRAYINSERTEDFAULT, T_TOP2000_STARTOFRECORDINGSESSION "
-                + "WHERE [T_TOP2000_STARTOFRECORDINGSESSION]![dDate]='"+sDate+"';";
+        String query = "SELECT * FROM T_TOP2000_STARTOFRECORDINGSESSION "
+                + "WHERE dDate='" + sDate + "';";
 
+        logger.info("Query findByDate : " + query);
         //BeanPropertyRowMapper permite mapear automt. basado en la clase proporcionada
         return jdbcTemplate.query(query, new BeanPropertyRowMapper(StartOfRecordingSession.class));
     }
