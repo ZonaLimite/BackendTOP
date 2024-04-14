@@ -26,31 +26,16 @@ import org.springframework.web.servlet.resource.NoResourceFoundException;
  * @author F.J. BOGA
  */
 @RestController
-@RequestMapping("/mis")
+@RequestMapping("/api")
 public class BlastIndexRestController {
 
     @Autowired
     private StartOfRecordingSessionService SORS_Service;
 
     @GetMapping("/sessions")
-    List<StartOfRecordingSession> findAll() {
-        return SORS_Service.findAll();
-    }
-
-    @GetMapping("/sessions/custom")
-    List<StartOfRecordingSession> findByDate(@RequestParam(name = "fecha") String sFecha) {
-        System.out.println("depurada fecha "+ sFecha);
-        return SORS_Service.findByDate(sFecha);
-    }
-
-    //Configuracon Excepciones
-    @ExceptionHandler(NoResourceFoundException.class)
-    public ResponseEntity<String> handleNoResourceFoundException(
-            Exception exception
-    ) {
-        return ResponseEntity
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(exception.getMessage());
+    List<StartOfRecordingSession> findByCustom(@RequestParam Map<String,String> queryMap) {
+       
+        return SORS_Service.findByCustom(queryMap.get("center"),queryMap.get("maquina") ,queryMap.get("fecha") ,queryMap.get("hora") ,queryMap.get("turno") ,queryMap.get("programa"));
     }
 
 }

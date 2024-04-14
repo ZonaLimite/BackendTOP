@@ -14,6 +14,6 @@ import java.util.List;
  */
 public interface IStartOfRecordingSessionService {
       List<StartOfRecordingSession> findAll();
-      List<StartOfRecordingSession> findByDate(String sDate);
+      List<StartOfRecordingSession> findByCustom(String center, String maquina, String fecha, String hora, String turno, String programa);
     
 }

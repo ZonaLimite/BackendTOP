@@ -13,20 +13,20 @@ import lombok.Data;
  */
 @Data
 public class EmptyTrayInsertedFault implements Serializable{
-    Integer centro;
+    Integer center;
     Integer maquina;
     String fecha;
     String hora;
     String nivel;
     String lado;
-    int salida;
+    Integer salida;
     //int fallos;
-
+  //Integer center, Integer maquina, String fecha, String hora, String turno, String programa) {
     public EmptyTrayInsertedFault() {
     }
 
-    public EmptyTrayInsertedFault(Integer centro, Integer maquina, String fecha, String hora, String nivel, String lado, int salida) {
-        this.centro = centro;
+    public EmptyTrayInsertedFault(Integer center, Integer maquina, String fecha, String hora,String nivel, String lado, Integer salida) {
+        this.center = center;
         this.maquina = maquina;
         this.fecha = fecha;
         this.hora = hora;
@@ -38,6 +38,11 @@ public class EmptyTrayInsertedFault implements Serializable{
     
     @Override
     public String toString(){
-        return "centro:"+centro+",maquina:"+maquina+",fecha:"+fecha+",hora:"+hora+" "+this.nivel + this.lado+this.salida;
+        return "centro:"+center+",maquina:"+maquina+",fecha:"+fecha+",hora:"+hora+" "+"nivel:"+this.nivel + "lado:"+this.lado+"salida:"+this.salida;
     }
+    
+    public String sPatd () {
+    	return this.getNivel()+this.getLado()+this.getSalida();
+    }
+    
 }
