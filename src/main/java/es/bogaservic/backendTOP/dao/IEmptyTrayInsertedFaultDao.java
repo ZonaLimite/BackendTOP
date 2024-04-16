@@ -5,6 +5,7 @@
 package es.bogaservic.backendTOP.dao;
 
 import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
+import es.bogaservic.backendTOP.models.FaultsTwoFields;
 import java.util.List;
 
 /**
@@ -13,6 +14,6 @@ import java.util.List;
  */
 public interface IEmptyTrayInsertedFaultDao {
     List<EmptyTrayInsertedFault> findEmptyTrayInsertedFaults(String center, String maquina, String fecha, String hora, String turno, String programa);
-    //List<EmptyTrayInsertedFault> findEmptyTrayInsertedFaultsGroupBy(String center, String maquina, String fecha, String hora, String turno, String programa);
+    List<FaultsTwoFields> findEmptyTrayInsertedFaultsGroupBy(String center, String maquina, String fecha, String hora, String turno, String programa);
     
 }

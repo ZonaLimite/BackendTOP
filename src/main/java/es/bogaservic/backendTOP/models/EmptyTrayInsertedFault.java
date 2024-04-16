@@ -41,7 +41,7 @@ public class EmptyTrayInsertedFault implements Serializable{
         return "centro:"+center+",maquina:"+maquina+",fecha:"+fecha+",hora:"+hora+" "+"nivel:"+this.nivel + "lado:"+this.lado+"salida:"+this.salida;
     }
     
-    public String sPatd () {
+    public String getDevice () {
     	return this.getNivel()+this.getLado()+this.getSalida();
     }
     

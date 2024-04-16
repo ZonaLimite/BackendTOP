@@ -6,7 +6,6 @@ package es.bogaservic.backendTOP.service;
 
 import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -14,6 +13,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import es.bogaservic.backendTOP.dao.IEmptyTrayInsertedFaultDao;
+import es.bogaservic.backendTOP.models.FaultsTwoFields;
 
 /**
  *
@@ -32,17 +32,11 @@ public class EmptyTrayInsertedFaultService implements IEmptyTrayInsertedFaultSer
 	}
 	
 	@Override
-	public Map<String, Long> findEmptyTrayInsertedFaultsGroupBy(String center, String maquina, String fecha,
-			String hora, String turno, String programa, String nameFieldGroupBy) {
+	public List<FaultsTwoFields> findEmptyTrayInsertedFaultsGroupBy(String center, String maquina, String fecha,
+			String hora, String turno, String programa) {
 		
-		List<EmptyTrayInsertedFault> tuplas = etif_Repo.findEmptyTrayInsertedFaults(center, maquina, fecha, hora, turno,
-				programa);
-		Map<String, Long> etif_grouped = tuplas.stream()
-				.collect(Collectors.groupingBy(EmptyTrayInsertedFault::sPatd, Collectors.counting()));
-
-		System.out.println(etif_grouped);
-
-		return etif_grouped;
+		return etif_Repo.findEmptyTrayInsertedFaultsGroupBy(center, maquina, fecha, hora, turno, programa);
+		
 	}
 
 	

@@ -55,7 +55,7 @@ public class StartOfRecordingSessionDao_JDBC implements IStartOfRecordingSession
 		logger.info("Query findByDate : " + query);
 		// BeanPropertyRowMapper permite mapear automt. basado en la clase proporcionada
 		return jdbcTemplate.query(query,
-				new BeanPropertyRowMapper<StartOfRecordingSession>(StartOfRecordingSession.class));
+				new BeanPropertyRowMapper<>(StartOfRecordingSession.class));
 	}
 
 	public static String makeQuerySessionsCriteria(String center, String maquina, String fecha, String hora,
