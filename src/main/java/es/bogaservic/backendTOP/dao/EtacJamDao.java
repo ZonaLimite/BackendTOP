@@ -25,7 +25,7 @@ public class EtacJamDao implements IEtacJam {
     @Override
     public List<es.bogaservic.backendTOP.models.FaultsTwoFields> findEtacJamGroupBy(String center, String maquina, String fecha, String hora, String turno, String programa) {
         String iSessionsCriteria = StartOfRecordingSessionDao_JDBC.makeQuerySessionsCriteria(center, maquina, fecha, hora, turno, programa);
-        String querySQL="SELECT T_TOP2000_ETACJAM.sOutput AS device, count (sOutput) AS fallos " 
+        String querySQL="SELECT T_TOP2000_ETACJAM.sOutput AS name, count (sOutput) AS value " 
                         +"FROM T_TOP2000_ETACJAM " 
                         +"WHERE T_TOP2000_ETACJAM.iSessionNumber In(" + iSessionsCriteria + ") "
                         +"GROUP BY sOutput "

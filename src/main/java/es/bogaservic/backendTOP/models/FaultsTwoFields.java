@@ -13,15 +13,15 @@ import lombok.Data;
  */
 @Data
 public class FaultsTwoFields implements Serializable{
-    String device;
-    int fallos;
+    String name;
+    int value;
 
     public FaultsTwoFields() {
     }
 
     public FaultsTwoFields(String device, int fallos) {
-        this.device = device;
-        this.fallos = fallos;
+        this.name = device;
+        this.value = fallos;
     }
     
     
