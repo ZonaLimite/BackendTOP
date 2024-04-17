@@ -20,7 +20,7 @@ import org.springframework.stereotype.Repository;
  * @author DevelopePC
  */
 @Repository
-public class EmptyTrayInsertedFaultDao_JDBC implements IEmptyTrayInsertedFaultDao {
+public class EmptyTrayInsertedFaultDao_JDBC implements IEmptyTrayInsertedFaultDao_JDBC {
 
     @Autowired
     JdbcTemplate jdbcTemplate;

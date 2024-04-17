@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import es.bogaservic.backendTOP.dao.IEmptyTrayInsertedFaultDao;
+import es.bogaservic.backendTOP.dao.IEmptyTrayInsertedFaultDao_JDBC;
 import es.bogaservic.backendTOP.models.FaultsTwoFields;
 
 /**
@@ -23,7 +23,7 @@ import es.bogaservic.backendTOP.models.FaultsTwoFields;
 public class EmptyTrayInsertedFaultService implements IEmptyTrayInsertedFaultService {
 
 	@Autowired
-	private IEmptyTrayInsertedFaultDao etif_Repo;
+	private IEmptyTrayInsertedFaultDao_JDBC etif_Repo;
 
 	@Override
 	public List<EmptyTrayInsertedFault> findEmptyTrayInsertedFaults(String center, String maquina, String fecha,

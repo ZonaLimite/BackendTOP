@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author DevelopePC
  */
-public interface IEmptyTrayInsertedFaultDao {
+public interface IEmptyTrayInsertedFaultDao_JDBC {
     List<EmptyTrayInsertedFault> findEmptyTrayInsertedFaults(String center, String maquina, String fecha, String hora, String turno, String programa);
     List<FaultsTwoFields> findEmptyTrayInsertedFaultsGroupBy(String center, String maquina, String fecha, String hora, String turno, String programa);
     

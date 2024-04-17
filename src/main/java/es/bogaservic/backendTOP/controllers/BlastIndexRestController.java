@@ -14,6 +14,7 @@ import es.bogaservic.backendTOP.service.StartOfRecordingSessionService;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author F.J. BOGA
  */
+@CrossOrigin(origins= {"http://localhost:4200"})
 @RestController
 @RequestMapping("/api")
 public class BlastIndexRestController {
@@ -43,6 +45,7 @@ public class BlastIndexRestController {
         return SORS_Service.findByCustom(queryMap.get("center"),queryMap.get("maquina") ,queryMap.get("fecha") ,queryMap.get("hora") ,queryMap.get("turno") ,queryMap.get("programa"));
     }
     
+    
     @GetMapping("/faults/etif")//EmptyTrayInsertedFault
     List<EmptyTrayInsertedFault> findByCustomETIF(@RequestParam Map<String,String> queryMap) {
        
@@ -55,7 +58,7 @@ public class BlastIndexRestController {
         return ETIF_Service.findEmptyTrayInsertedFaultsGroupBy(queryMap.get("center"),queryMap.get("maquina") ,queryMap.get("fecha") ,queryMap.get("hora") ,queryMap.get("turno") ,queryMap.get("programa"));
     }
 
-
+    
     @GetMapping("/faults/ejGroupBy")//EtacsJamGroupBy
     List<FaultsTwoFields> findByCustomEJGroupBy(@RequestParam Map<String,String> queryMap) {
        
