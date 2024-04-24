@@ -19,9 +19,9 @@ public class FaultsTwoFields implements Serializable{
     public FaultsTwoFields() {
     }
 
-    public FaultsTwoFields(String device, int fallos) {
-        this.name = device;
-        this.value = fallos;
+    public FaultsTwoFields(String name, int value) {
+        this.name = name;
+        this.value = value;
     }
     
     

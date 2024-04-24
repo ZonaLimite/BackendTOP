@@ -14,7 +14,11 @@ import lombok.Data;
 @Data
 public class StartOfRecordingSession implements Serializable{
 
-    String nid;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	String nid;
     String smachinetype;
     int icenterid;
     int imachineid;

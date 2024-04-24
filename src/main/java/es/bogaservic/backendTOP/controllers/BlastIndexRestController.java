@@ -45,6 +45,11 @@ public class BlastIndexRestController {
         return SORS_Service.findByCustom(queryMap.get("center"),queryMap.get("maquina") ,queryMap.get("fecha") ,queryMap.get("hora") ,queryMap.get("turno") ,queryMap.get("programa"));
     }
     
+    @GetMapping("/sessions/all")//StartOfRecordingSessions
+    List<StartOfRecordingSession> findAllSORS(@RequestParam Map<String,String> queryMap) {
+       
+        return SORS_Service.findAll();
+    }
     
     @GetMapping("/faults/etif")//EmptyTrayInsertedFault
     List<EmptyTrayInsertedFault> findByCustomETIF(@RequestParam Map<String,String> queryMap) {
