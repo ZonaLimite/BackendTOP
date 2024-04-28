@@ -43,6 +43,15 @@ public class StartOfRecordingSessionDao_JDBC implements IStartOfRecordingSession
 		return jdbcTemplate.query(query, new BeanPropertyRowMapper<StartOfRecordingSession>(StartOfRecordingSession.class));
 
 	}
+	@Override
+	public List<StartOfRecordingSession> findAllByMachine(int idMachine) {
+		String query = "SELECT * FROM T_TOP2000_STARTOFRECORDINGSESSION WHERE iMachineId = "+ idMachine + " ORDER By sFullTime DESC";
+			
+		logger.info("Query findAll : " + query);
+		// BeanPropertyRowMapper permite mapear automt. basado en la clase proporcionada
+		return jdbcTemplate.query(query, new BeanPropertyRowMapper<StartOfRecordingSession>(StartOfRecordingSession.class));
+
+	}
 
 	@Override
 	public List<StartOfRecordingSession> findByCustom(String center, String maquina, String fecha, String hora,String turno, String programa) {
@@ -89,5 +98,5 @@ public class StartOfRecordingSessionDao_JDBC implements IStartOfRecordingSession
 		}
 		return recordingBase;
 	}
-
+	
 }

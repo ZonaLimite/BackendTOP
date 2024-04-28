@@ -16,7 +16,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,6 +44,14 @@ public class BlastIndexRestController {
        
         return SORS_Service.findByCustom(queryMap.get("center"),queryMap.get("maquina") ,queryMap.get("fecha") ,queryMap.get("hora") ,queryMap.get("turno") ,queryMap.get("programa"));
     }
+    
+    @GetMapping("/sessions/machine/{idMaquina}")//StartOfRecordingSessions
+    List<StartOfRecordingSession> findAllByMachine(@PathVariable int idMaquina) {
+       
+        //El centro de Madrid tiene valor 2
+    	return SORS_Service.findAllByMachine(idMaquina);
+    }
+
     
     @GetMapping("/sessions/all")//StartOfRecordingSessions
     List<StartOfRecordingSession> findAllSORS(@RequestParam Map<String,String> queryMap) {

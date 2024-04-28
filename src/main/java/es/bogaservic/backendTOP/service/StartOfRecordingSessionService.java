@@ -31,5 +31,11 @@ public class StartOfRecordingSessionService implements IStartOfRecordingSessionS
 		return SORS_Repo.findByCustom(center, maquina, fecha, hora, turno, programa);
 	}
 
+	@Override
+	public List<StartOfRecordingSession> findAllByMachine(int idMaquina) {
+		
+		return SORS_Repo.findAllByMachine(idMaquina);
+	}
+
   
 }
