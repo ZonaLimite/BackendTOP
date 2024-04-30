@@ -4,18 +4,13 @@
  */
 package es.bogaservic.backendTOP.dao;
 
-import es.bogaservic.backendTOP.models.T_TOP2000_STARTOFRECORDINGSESSION;
+import es.bogaservic.backendTOP.models.FaultsTwoFields;
 import java.util.List;
-import java.util.Optional;
 
 /**
  *
- * @author F.J. BOGA
+ * @author DevelopePC
  */
-public interface T_TOP2000_STARTOFRECORDINGSESSION_Repository {
-    List<T_TOP2000_STARTOFRECORDINGSESSION> findAll();
-    
-    
-    
-    
+public interface IEtacJam {
+    List<FaultsTwoFields> findEtacJamGroupBy(String center, String maquina, String fecha, String hora, String turno, String programa);
 }
