@@ -62,7 +62,7 @@ public class EmptyTrayInsertedFaultDao_JDBC implements IEmptyTrayInsertedFaultDa
                 + "FROM t_top2000_emptytrayinsertedfault "
                 + "WHERE t_top2000_emptytrayinsertedfault.iSessionNumber In (" + iSessionsCriteria + ") "
                 + "GROUP BY IIf(t_top2000_emptytrayinsertedfault.iSortModuleLevel=1,\"A\",\"B\"), IIf(t_top2000_emptytrayinsertedfault.iSortModuleSide=1,\"F\",\"T\"), ((([iSortModuleId]*6) -6))+ [iOutput] "
-                + "ORDER BY 1 DESC;";
+                + "ORDER BY 1,2 DESC;";
         System.out.println("Query SQL etifGroupBy = " + querySQL);
         return jdbcTemplate.query(querySQL, 
                 new RowMapper<FaultsTwoFields>() {
