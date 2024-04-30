@@ -1,10 +1,5 @@
 package es.bogaservic.backendTOP;
 
-import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.List;
-import javax.swing.Timer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -33,7 +28,7 @@ public class BackendTopApplication implements CommandLineRunner {
         //String fecha="2024/04/02";
         String fecha=null;
         String turno=null;
-
+        int paso=0 ;
         Timer timer = new Timer(3000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 List<EmptyTrayInsertedFault> result = ETIF_Service.findEmptyTrayInsertedFaults(centro, maquina,fecha , null, turno, null);

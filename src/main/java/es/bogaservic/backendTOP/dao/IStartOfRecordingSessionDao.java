@@ -14,8 +14,8 @@ import java.util.Optional;
  * @author F.J. BOGA
  */
 public interface IStartOfRecordingSessionDao {
-    List<StartOfRecordingSession> findAll();
-    List<StartOfRecordingSession> findByDate(String sDate);//Formato --> (AAAA/MM/DD)
-    
+    List<StartOfRecordingSession> findAll();                                //(AAAA/MM/DD)
+    List<StartOfRecordingSession> findByCustom(String center, String maquina, String fecha, String hora, String turno, String programa);
+    List<StartOfRecordingSession> findAllByMachine(int idMaquina);
     
 }

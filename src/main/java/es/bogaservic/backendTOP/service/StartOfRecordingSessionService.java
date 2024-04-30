@@ -25,9 +25,17 @@ public class StartOfRecordingSessionService implements IStartOfRecordingSessionS
        return SORS_Repo.findAll();
     }
 
-    @Override
-    public List<StartOfRecordingSession> findByDate(String sDate) {
-        return SORS_Repo.findByDate(sDate);
-    }
-    
+	@Override
+	public List<StartOfRecordingSession> findByCustom(String center, String maquina, String fecha, String hora,
+			String turno, String programa) {
+		return SORS_Repo.findByCustom(center, maquina, fecha, hora, turno, programa);
+	}
+
+	@Override
+	public List<StartOfRecordingSession> findAllByMachine(int idMaquina) {
+		
+		return SORS_Repo.findAllByMachine(idMaquina);
+	}
+
+  
 }

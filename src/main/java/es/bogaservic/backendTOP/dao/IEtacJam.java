@@ -4,13 +4,13 @@
  */
 package es.bogaservic.backendTOP.dao;
 
-import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
+import es.bogaservic.backendTOP.models.FaultsTwoFields;
 import java.util.List;
 
 /**
  *
  * @author DevelopePC
  */
-public interface IEmptyTrayInsertedFaultDao {
-    List<EmptyTrayInsertedFault> findEmptyTrayInsertedFaults(Integer center, Integer maquina, String fecha, String hora, String turno, String programa);
+public interface IEtacJam {
+    List<FaultsTwoFields> findEtacJamGroupBy(String center, String maquina, String fecha, String hora, String turno, String programa);
 }

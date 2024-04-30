@@ -8,12 +8,15 @@ import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
 import es.bogaservic.backendTOP.models.StartOfRecordingSession;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.PathVariable;
+
 /**
  *
  * @author F.J. BOGA
  */
 public interface IStartOfRecordingSessionService {
       List<StartOfRecordingSession> findAll();
-      List<StartOfRecordingSession> findByDate(String sDate);
+      List<StartOfRecordingSession> findByCustom(String center, String maquina, String fecha, String hora, String turno, String programa);
+      List<StartOfRecordingSession> findAllByMachine(int idMaquina);
     
 }
