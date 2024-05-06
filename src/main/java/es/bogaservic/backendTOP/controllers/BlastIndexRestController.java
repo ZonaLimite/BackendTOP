@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author F.J. BOGA
  */
-@CrossOrigin(origins= {"http://localhost:4200"})
+//@CrossOrigin(origins= {"http://192.168.1.5:4200"}) Ajustado a nivel de configuracion
 @RestController
 @RequestMapping("/api")
 public class BlastIndexRestController {
