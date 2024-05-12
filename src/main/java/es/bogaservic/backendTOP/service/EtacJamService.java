@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 public class EtacJamService implements IEtacJamService {
 
     @Autowired
-    private EtacJamDao EJ_Repo;
+    private IEtacJam EJ_Repo;
 
     @Override
     public List<FaultsTwoFields> findEtacJamGroupBy(String center, String maquina, String fecha, String hora, String turno, String programa) {
