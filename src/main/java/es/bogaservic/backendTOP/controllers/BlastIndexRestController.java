@@ -4,6 +4,16 @@
  */
 package es.bogaservic.backendTOP.controllers;
 
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
 import es.bogaservic.backendTOP.models.FaultsTwoFields;
 import es.bogaservic.backendTOP.models.InputLineItem;
@@ -12,16 +22,6 @@ import es.bogaservic.backendTOP.service.EmptyTrayInsertedFaultService;
 import es.bogaservic.backendTOP.service.EtacJamService;
 import es.bogaservic.backendTOP.service.InputLineItemsService;
 import es.bogaservic.backendTOP.service.StartOfRecordingSessionService;
-
-import java.util.List;
-import java.util.Map;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  *

@@ -4,11 +4,9 @@
  */
 package es.bogaservic.backendTOP.service;
 
-import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
-import es.bogaservic.backendTOP.models.StartOfRecordingSession;
 import java.util.List;
 
-import org.springframework.web.bind.annotation.PathVariable;
+import es.bogaservic.backendTOP.models.StartOfRecordingSession;
 
 /**
  *

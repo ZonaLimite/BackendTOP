@@ -4,10 +4,9 @@
  */
 package es.bogaservic.backendTOP.dao;
 
-import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
-import es.bogaservic.backendTOP.models.StartOfRecordingSession;
 import java.util.List;
-import java.util.Optional;
+
+import es.bogaservic.backendTOP.models.StartOfRecordingSession;
 
 /**
  *

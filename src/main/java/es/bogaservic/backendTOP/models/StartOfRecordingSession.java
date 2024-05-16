@@ -5,6 +5,7 @@
 package es.bogaservic.backendTOP.models;
 
 import java.io.Serializable;
+
 import lombok.Data;
 
 /**

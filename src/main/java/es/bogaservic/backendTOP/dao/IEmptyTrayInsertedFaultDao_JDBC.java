@@ -4,9 +4,10 @@
  */
 package es.bogaservic.backendTOP.dao;
 
+import java.util.List;
+
 import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
 import es.bogaservic.backendTOP.models.FaultsTwoFields;
-import java.util.List;
 
 /**
  *

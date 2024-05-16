@@ -4,15 +4,13 @@
  */
 package es.bogaservic.backendTOP.service;
 
-import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
-
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import es.bogaservic.backendTOP.dao.IEmptyTrayInsertedFaultDao_JDBC;
+import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
 import es.bogaservic.backendTOP.models.FaultsTwoFields;
 
 /**

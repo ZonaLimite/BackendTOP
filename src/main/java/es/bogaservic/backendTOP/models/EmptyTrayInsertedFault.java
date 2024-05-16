@@ -5,6 +5,7 @@
 package es.bogaservic.backendTOP.models;
 
 import java.io.Serializable;
+
 import lombok.Data;
 
 /**
@@ -20,8 +21,7 @@ public class EmptyTrayInsertedFault implements Serializable{
     String nivel;
     String lado;
     Integer salida;
-    //int fallos;
-  //Integer center, Integer maquina, String fecha, String hora, String turno, String programa) {
+
     public EmptyTrayInsertedFault() {
     }
 

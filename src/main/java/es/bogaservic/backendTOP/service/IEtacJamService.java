@@ -4,8 +4,9 @@
  */
 package es.bogaservic.backendTOP.service;
 
-import es.bogaservic.backendTOP.models.FaultsTwoFields;
 import java.util.List;
+
+import es.bogaservic.backendTOP.models.FaultsTwoFields;
 
 /**
  *
