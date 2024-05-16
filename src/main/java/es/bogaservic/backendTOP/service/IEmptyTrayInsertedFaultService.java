@@ -4,10 +4,10 @@
  */
 package es.bogaservic.backendTOP.service;
 
+import java.util.List;
+
 import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
 import es.bogaservic.backendTOP.models.FaultsTwoFields;
-import java.util.List;
-import java.util.Map;
 
 /**
  *

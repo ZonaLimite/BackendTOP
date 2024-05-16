@@ -4,8 +4,9 @@
  */
 package es.bogaservic.backendTOP.dao;
 
-import es.bogaservic.backendTOP.models.FaultsTwoFields;
 import java.util.List;
+
+import es.bogaservic.backendTOP.models.FaultsTwoFields;
 
 /**
  *
