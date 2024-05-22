@@ -30,7 +30,7 @@ public class StartOfRecordingSessionDao_JDBC implements IStartOfRecordingSession
 
 	@Override
 	public List<StartOfRecordingSession> findAll() {
-		String query = "SELECT * FROM T_TOP2000_STARTOFRECORDINGSESSION ORDER By sFullTime DESC";
+		String query = "SELECT TOP 25* FROM T_TOP2000_STARTOFRECORDINGSESSION ORDER By sFullTime DESC";
 			
 		logger.info("Query findAll : " + query);
 		// BeanPropertyRowMapper permite mapear automt. basado en la clase proporcionada
