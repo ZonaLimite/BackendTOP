@@ -6,6 +6,7 @@ package es.bogaservic.backendTOP.service;
 
 import java.util.List;
 
+import es.bogaservic.backendTOP.models.ModelQuerier;
 import es.bogaservic.backendTOP.models.StartOfRecordingSession;
 
 /**
@@ -16,5 +17,5 @@ public interface IStartOfRecordingSessionService {
       List<StartOfRecordingSession> findAll();
       List<StartOfRecordingSession> findByCustom(String center, String maquina, String fecha, String hora, String turno, String programa);
       List<StartOfRecordingSession> findAllByMachine(int idMaquina);
-    
+      List<ModelQuerier> findWithFeededByMachine(int idMachine, int iCenter);
 }

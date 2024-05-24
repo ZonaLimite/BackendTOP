@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import es.bogaservic.backendTOP.dao.IStartOfRecordingSessionDao;
+import es.bogaservic.backendTOP.models.ModelQuerier;
 import es.bogaservic.backendTOP.models.StartOfRecordingSession;
 
 /**
@@ -37,6 +38,11 @@ public class StartOfRecordingSessionService implements IStartOfRecordingSessionS
 	public List<StartOfRecordingSession> findAllByMachine(int idMaquina) {
 		
 		return SORS_Repo.findAllByMachine(idMaquina);
+	}
+
+	@Override
+	public List<ModelQuerier> findWithFeededByMachine(int idMachine, int iCenter) {
+		return SORS_Repo.findWithFeededByMachine(idMachine, iCenter);
 	}
 
   

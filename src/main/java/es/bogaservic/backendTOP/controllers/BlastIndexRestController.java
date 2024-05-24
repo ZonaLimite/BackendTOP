@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
 import es.bogaservic.backendTOP.models.FaultsTwoFields;
 import es.bogaservic.backendTOP.models.InputLineItem;
+import es.bogaservic.backendTOP.models.ModelQuerier;
 import es.bogaservic.backendTOP.models.StartOfRecordingSession;
 import es.bogaservic.backendTOP.service.EmptyTrayInsertedFaultService;
 import es.bogaservic.backendTOP.service.EtacJamService;
@@ -55,6 +56,14 @@ public class BlastIndexRestController {
        
         //El centro de Madrid tiene valor 2
     	return SORS_Service.findAllByMachine(idMaquina);
+    }
+    
+
+    @GetMapping("/sessionsQuerier/machine/{idMaquina}")//StartOfRecordingSessions
+    List<ModelQuerier> sessionForQuerier(@PathVariable int idMaquina) {
+       
+        //El centro de Madrid tiene valor 2
+    	return SORS_Service.findWithFeededByMachine(idMaquina, 2);
     }
     
     @GetMapping("/sessions/all")//StartOfRecordingSessions
