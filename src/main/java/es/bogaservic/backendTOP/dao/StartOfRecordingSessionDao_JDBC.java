@@ -4,7 +4,12 @@
  */
 package es.bogaservic.backendTOP.dao;
 
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import java.util.List;
+import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,9 +71,14 @@ public class StartOfRecordingSessionDao_JDBC implements IStartOfRecordingSession
 		logger.info("Query findAll : " + query);
 		// BeanPropertyRowMapper permite mapear automt. basado en la clase proporcionada
 
-		return jdbcTemplate.query(query,
-				new BeanPropertyRowMapper<ModelQuerier>(ModelQuerier.class));
+		/**return jdbcTemplate.query(query,
+				new BeanPropertyRowMapper<ModelQuerier>(ModelQuerier.class));**/
+		
+		return  jdbcTemplate.query(
+				query, new CustomerRowMapper());
+	
 	}
+
 
 	@Override
 	public List<StartOfRecordingSession> findByCustom(String center, String maquina, String fecha, String hora,
