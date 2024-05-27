@@ -69,11 +69,7 @@ public class StartOfRecordingSessionDao_JDBC implements IStartOfRecordingSession
 				+ "ORDER BY 4 DESC;";
 		
 		logger.info("Query findAll : " + query);
-		// BeanPropertyRowMapper permite mapear automt. basado en la clase proporcionada
 
-		/**return jdbcTemplate.query(query,
-				new BeanPropertyRowMapper<ModelQuerier>(ModelQuerier.class));**/
-		
 		return  jdbcTemplate.query(
 				query, new CustomerRowMapper());
 	
