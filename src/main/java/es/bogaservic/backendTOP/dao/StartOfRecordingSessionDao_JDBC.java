@@ -7,8 +7,9 @@ package es.bogaservic.backendTOP.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.time.ZoneId;
 import java.util.List;
+import java.util.Map;
 import java.util.Date;
 
 import org.slf4j.Logger;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Repository;
 
 import es.bogaservic.backendTOP.models.ModelQuerier;
 import es.bogaservic.backendTOP.models.StartOfRecordingSession;
+import es.bogaservic.backendTOP.service.UtilDateTime;
 
 /**
  *
@@ -95,6 +97,7 @@ public class StartOfRecordingSessionDao_JDBC implements IStartOfRecordingSession
 
 		String recordingBase = "SELECT T_TOP2000_STARTOFRECORDINGSESSION.iSessionNumber "
 				+ "FROM T_TOP2000_STARTOFRECORDINGSESSION ";
+				
 		if (turno == null) {
 			recordingBase += "WHERE IIf([T_TOP2000_STARTOFRECORDINGSESSION].[sShift]=\"\",\"Sin Turno\",[T_TOP2000_STARTOFRECORDINGSESSION].[sShift])<>\"Pausa\" And IIf([T_TOP2000_STARTOFRECORDINGSESSION].[sShift]=\"\",\"Sin Turno\",[T_TOP2000_STARTOFRECORDINGSESSION].[sShift])<>\"Mantenimiento\" ";
 		} else {
@@ -112,14 +115,13 @@ public class StartOfRecordingSessionDao_JDBC implements IStartOfRecordingSession
 		if ((fecha != null)) {
 			recordingBase += "AND T_TOP2000_STARTOFRECORDINGSESSION.dDate BETWEEN " + fecha + " ";// de la forma
 																									// '2024/04/01' AND
-																									// '2024/04/02'
 		}
 
 		if ((hora != null)) {
 			recordingBase += "AND T_TOP2000_STARTOFRECORDINGSESSION.hTime BETWEEN " + hora + " ";// de la forma
 																									// '00:00:00' AND
-																									// '01:00:00'
 		}
+
 		if (programa != null) {
 			recordingBase += "AND T_TOP2000_STARTOFRECORDINGSESSION.sExploitationPlan = '" + programa + "' ";
 		}
