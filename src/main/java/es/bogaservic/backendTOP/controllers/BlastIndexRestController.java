@@ -18,11 +18,15 @@ import es.bogaservic.backendTOP.models.EmptyTrayInsertedFault;
 import es.bogaservic.backendTOP.models.FaultsTwoFields;
 import es.bogaservic.backendTOP.models.InputLineItem;
 import es.bogaservic.backendTOP.models.ModelQuerier;
+import es.bogaservic.backendTOP.models.OutputCarruselModel;
 import es.bogaservic.backendTOP.models.StartOfRecordingSession;
+import es.bogaservic.backendTOP.service.BucketNotProperlyClosedFaultService;
+import es.bogaservic.backendTOP.service.CanNotOpenBucketFaultService;
 import es.bogaservic.backendTOP.service.EmptyTrayInsertedFaultService;
 import es.bogaservic.backendTOP.service.EtacJamService;
 import es.bogaservic.backendTOP.service.InputLineItemsService;
 import es.bogaservic.backendTOP.service.StartOfRecordingSessionService;
+import es.bogaservic.backendTOP.service.UnloadingElectroimanFaultService;
 
 /**
  *
@@ -44,7 +48,16 @@ public class BlastIndexRestController {
     
     @Autowired
     private InputLineItemsService ILI_Service;
+    
+    @Autowired
+    private UnloadingElectroimanFaultService UEF_Service;
 
+    @Autowired
+    private BucketNotProperlyClosedFaultService BNPC_Service;
+
+    @Autowired
+    private CanNotOpenBucketFaultService CNOB_Service;
+    
     @GetMapping("/sessions")//StartOfRecordingSessions
     List<StartOfRecordingSession> findByCustomSORS(@RequestParam Map<String,String> queryMap) {
        
@@ -58,7 +71,6 @@ public class BlastIndexRestController {
     	return SORS_Service.findAllByMachine(idMaquina);
     }
     
-
     @GetMapping("/sessionsQuerier/machine/{idMaquina}")//StartOfRecordingSessions
     List<ModelQuerier> sessionForQuerier(@PathVariable int idMaquina) {
        
@@ -90,10 +102,32 @@ public class BlastIndexRestController {
         return EJ_Service.findEtacJamGroupBy(queryMap.get("center"),queryMap.get("maquina") ,queryMap.get("fecha") ,queryMap.get("hora") ,queryMap.get("turno") ,queryMap.get("programa"));
     }
     
+    @GetMapping("/faults/uefGroupBy")//UnloadingElectroimanFault
+    List<FaultsTwoFields> findByCustomUEFGroupBy(@RequestParam Map<String,String> queryMap) {
+       
+        return UEF_Service.findUnloadingElectroimanFaultGroupBy(queryMap.get("center"),queryMap.get("maquina") ,queryMap.get("fecha") ,queryMap.get("hora") ,queryMap.get("turno") ,queryMap.get("programa"));
+    }
+
+    @GetMapping("/faults/bnpcGroupBy")//UnloadingElectroimanFault
+    List<OutputCarruselModel> findByCustomBNPCGroupBy(@RequestParam Map<String,String> queryMap) {
+       
+        return BNPC_Service.bucketNotProperlyClosedFaultDao_JDBC_GroupBy(queryMap.get("center"),queryMap.get("maquina") ,queryMap.get("fecha") ,queryMap.get("hora") ,queryMap.get("turno") ,queryMap.get("programa"));
+    }
+
+    @GetMapping("/faults/cnobGroupBy")//UnloadingElectroimanFault
+    List<OutputCarruselModel> findByCustomCNOBGroupBy(@RequestParam Map<String,String> queryMap) {
+       
+        return CNOB_Service.bucketNotProperlyClosedFaultDao_JDBC_GroupBy(queryMap.get("center"),queryMap.get("maquina") ,queryMap.get("fecha") ,queryMap.get("hora") ,queryMap.get("turno") ,queryMap.get("programa"));
+    }
+    
+    
     @GetMapping("/querys/ilItems")//StartOfRecordingSessions
     List<InputLineItem> findByCustomInputLineItemsSumed(@RequestParam Map<String,String> queryMap) {
        
         return  ILI_Service.findInputLineItemsSumed(queryMap.get("center"),queryMap.get("maquina") ,queryMap.get("fecha") ,queryMap.get("hora") ,queryMap.get("turno") ,queryMap.get("programa"));
 
     }
+
+
+
 }

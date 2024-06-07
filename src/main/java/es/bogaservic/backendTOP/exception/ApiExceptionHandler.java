@@ -11,21 +11,21 @@ import net.ucanaccess.jdbc.UcanaccessSQLException;
 public class ApiExceptionHandler {
 		@ExceptionHandler(org.hsqldb.HsqlException.class)
 		public void handleHsqlException(Exception ex) {
-			System.err.println("Exception Hsql:" +ex);
+			System.err.println("Exception Hsql:" +ex.getMessage());
 		}
 
 		@ExceptionHandler(value = Exception.class)
 		public void handleException(Exception ex) {
-			System.err.println("Exception (message):" +ex);
+			System.err.println("Exception (message):" +ex.getMessage());
 		}
 		
 		@ExceptionHandler(UcanaccessSQLException.class)
 		public void handleUcanAccessException(Exception ex) {
-			System.err.println("Exception UcannAccess:" +ex);
+			System.err.println("Exception UcannAccess:" +ex.getMessage());
 		}
 		@ExceptionHandler(java.sql.SQLNonTransientConnectionException.class)
 		public void handleSQLException(Exception ex) {
-			System.err.println("Exception Hsql:" +ex);
+			System.err.println("Exception Hsql:" +ex.getMessage());
 		}
 
 		

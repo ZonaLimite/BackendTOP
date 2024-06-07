@@ -63,7 +63,7 @@ public class StartOfRecordingSessionDao_JDBC implements IStartOfRecordingSession
 
 	@Override
 	public List<ModelQuerier> findWithFeededByMachine(int idMachine, int iCenter) {
-		String query = "SELECT TOP 30 sors.iMachineId,sors.dDate AS Fecha, sors.hTime AS Hora,sors.sFullTime as FullTime, sors.sShift AS Turno, sors.sExploitationPlan AS Programa, sum( fi.iFedItems) AS Extraidas "
+		String query = "SELECT TOP 40 sors.iMachineId,sors.dDate AS Fecha, sors.hTime AS Hora,sors.sFullTime as FullTime, sors.sShift AS Turno, sors.sExploitationPlan AS Programa, sum( fi.iFedItems) AS Extraidas "
 				+ "FROM T_TOP2000_STARTOFRECORDINGSESSION AS sors INNER JOIN T_TOP2000_FEEDERITEMS AS fi ON sors.iSessionNumber= fi.iSessionNumber "
 				+ "WHERE sors.iMachineId = " + idMachine
 				+ " AND sors.iCenterId = " + iCenter
