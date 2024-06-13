@@ -112,7 +112,12 @@ public class StartOfRecordingSessionDao_JDBC implements IStartOfRecordingSession
 			recordingBase += "AND T_TOP2000_STARTOFRECORDINGSESSION.iMachineId=" + maquina + " ";
 		}
 
-		if ((fecha != null)) {
+		if (fecha != null && fecha.length() > 29) {// EL formato de consulta de la fecha es sFullDate
+			recordingBase += "AND T_TOP2000_STARTOFRECORDINGSESSION.sFullTime BETWEEN " + fecha + " ";// de la forma
+																									// '2024/04/01 00:00:00' AND
+		}
+		
+		if ((fecha != null && fecha.length() == 29)) {
 			recordingBase += "AND T_TOP2000_STARTOFRECORDINGSESSION.dDate BETWEEN " + fecha + " ";// de la forma
 																									// '2024/04/01' AND
 		}
